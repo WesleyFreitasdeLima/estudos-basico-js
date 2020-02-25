@@ -12,11 +12,14 @@
 
 <body onresize="ajustaTamanhoPalcoJogo()">
 
-
-
     <script>
-        posicaoRandomicaMosquito();
+        ajustaTamanhoPalcoJogo();
+
+        setInterval(()=>{
+            posicaoRandomicaMosquito();
+        },1000);
     </script>
+
 </body>
 
 </html>

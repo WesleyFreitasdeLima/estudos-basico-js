@@ -8,16 +8,19 @@ function ajustaTamanhoPalcoJogo() {
     console.log(palcoAltura, palcoLargura);
 }
 
-ajustaTamanhoPalcoJogo();
-
 // Gera o elemento mosquito
 // Posição limitadas pelo tamanho do palco evitando o mosquito fora dessa limitação
 function posicaoRandomicaMosquito() {
+    // Remove mosquito anterior, caso exista
+    if (document.getElementById('mosquito') !== null) {
+        document.getElementById('mosquito').remove();
+    }
+
     // Gera posições randomicas
     let posicaoXMosquito = Math.floor(Math.random() * palcoLargura) - 90;
     let posicaoYMosquito = Math.floor(Math.random() * palcoAltura) - 90;
 
-    // Evita que a posição do mosquito seja menor que zero, evintando ficar fora do palco
+    // Evita que a posição do mosquito seja menor que zero, evitando dele ficar fora do palco
     posicaoXMosquito = (posicaoXMosquito < 0) ? 0 : posicaoXMosquito;
     posicaoYMosquito = (posicaoYMosquito < 0) ? 0 : posicaoYMosquito;
 
@@ -28,6 +31,7 @@ function posicaoRandomicaMosquito() {
     mosquito.style.position = 'absolute';
     mosquito.style.left = `${posicaoXMosquito}px`;
     mosquito.style.top = `${posicaoYMosquito}px`;
+    mosquito.id = 'mosquito';
 
     // Inclui o mosquito no palco do jogo
     document.body.appendChild(mosquito);
@@ -50,10 +54,10 @@ function tamanhoAleatorioMosquito() {
     console.log(`Gerou tamanho ${clase}`);
 }
 
-function ladoAleatorioMosquito(){
-    let classe = Math.floor(Math.random()*2);
+function ladoAleatorioMosquito() {
+    let classe = Math.floor(Math.random() * 2);
 
-    switch (classe){
+    switch (classe) {
         case 0:
             return 'ladoA';
 
