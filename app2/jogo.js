@@ -1,5 +1,4 @@
 let palcoAltura, palcoLargura;
-
 function ajustaTamanhoPalcoJogo() {
     palcoAltura = window.innerHeight;
     palcoLargura = window.innerWidth;
@@ -10,16 +9,18 @@ function criarMosquito() {
     // Remove mosquito anterior, caso exista
     if (document.getElementById('mosquito') !== null) {
         document.getElementById('mosquito').remove();
+
+        perdeVida();
     }
 
     // Variaveis usadas nas propriedades do elemento Mosquito
     let posicoesXY = posicaoAleatoriaMosquito();
 
     // Atribui a classe de estilo referente ao tamanho do Mosquito
-    let classesCSS = tamanhoAleatorioMosquito(); 
-   
+    let classesCSS = tamanhoAleatorioMosquito();
+
     // Atribui a classe de estilo referente ao lado do Mosquito
-    classesCSS += ' ' + ladoAleatorioMosquito();  
+    classesCSS += ' ' + ladoAleatorioMosquito();
 
     // Cria o elemento mosquito
     let mosquito = document.createElement('img');
@@ -29,6 +30,10 @@ function criarMosquito() {
     mosquito.style.left = posicoesXY[0];
     mosquito.style.top = posicoesXY[1];
     mosquito.id = 'mosquito';
+    mosquito.onclick = function(){
+        this.remove();
+    }
+
 
     // Inclui o mosquito no palco do jogo
     document.body.appendChild(mosquito);
@@ -71,5 +76,18 @@ function ladoAleatorioMosquito() {
 
         case 1:
             return 'ladoB';
+    }
+}
+
+let vidasTotal = 5;
+function perdeVida(){
+    if (vidasTotal === 0) {
+
+        alert('gameover');
+        return;
+
+    } else {
+        document.getElementById(`vida${vidasTotal}`).src = 'imagens/coracao_vazio.png';
+        vidasTotal--;
     }
 }
