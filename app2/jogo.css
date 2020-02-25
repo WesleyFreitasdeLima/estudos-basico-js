@@ -3,6 +3,22 @@ body {
     background-repeat: no-repeat;
 }
 
+.game-over {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button-restart {
+    width: 200px;
+    height: 70px;
+    border: solid 7px orange;
+    border-radius: 80px;
+    background: white;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
 .mosquito1 {
     width: 50px;
     height: 50px;
@@ -18,11 +34,11 @@ body {
     height: 90px;
 }
 
-.ladoA{
+.ladoA {
     transform: scaleX(1);
 }
 
-.ladoB{
+.ladoB {
     transform: scaleX(-1);
 }
 
@@ -41,7 +57,7 @@ body {
     float: left;
 }
 
-.cronometro{
+.cronometro {
     float: left;
     font-size: 20px;
     font-weight: bold;

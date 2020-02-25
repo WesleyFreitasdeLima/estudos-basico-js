@@ -82,9 +82,7 @@ function ladoAleatorioMosquito() {
 let vidasTotal = 5;
 function perdeVida(){
     if (vidasTotal === 0) {
-
-        alert('gameover');
-        return;
+        window.location.href = 'game_over.html'
 
     } else {
         document.getElementById(`vida${vidasTotal}`).src = 'imagens/coracao_vazio.png';
