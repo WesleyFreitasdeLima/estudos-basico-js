@@ -4,37 +4,52 @@ let palcoAltura, palcoLargura;
 function ajustaTamanhoPalcoJogo() {
     palcoAltura = window.innerHeight;
     palcoLargura = window.innerWidth;
-
-    console.log(palcoAltura, palcoLargura);
 }
 
 // Gera o elemento mosquito
-// Posição limitadas pelo tamanho do palco evitando o mosquito fora dessa limitação
-function posicaoRandomicaMosquito() {
+function criarMosquito() {
     // Remove mosquito anterior, caso exista
     if (document.getElementById('mosquito') !== null) {
         document.getElementById('mosquito').remove();
     }
 
+    // Variaveis usadas nas propriedades do elemento Mosquito
+    let posicoesXY, classesCSS;
+
+    // Gera posições X e Y randomicas, 
+    posicoesXY = posicaoAleatoriaMosquito();
+
+    // Atribui a classe de estilo referente ao tamanho do Mosquito
+    classesCSS = `${tamanhoAleatorioMosquito()}`;
+
+    // Atribui a classe de estilo referente ao lado do Mosquito
+    classesCSS += ' ' + ladoAleatorioMosquito();
+
+    console.log(classesCSS);
+
+    // Cria o elemento mosquito
+    let mosquito = document.createElement('img');
+    mosquito.src = 'imagens/mosca.png';
+    mosquito.className = classesCSS;
+    mosquito.style.position = 'absolute';
+    mosquito.style.left = posicoesXY[0];
+    mosquito.style.top = posicoesXY[1];
+    mosquito.id = 'mosquito';
+
+    // Inclui o mosquito no palco do jogo
+    document.body.appendChild(mosquito);
+}
+
+function posicaoAleatoriaMosquito() {
     // Gera posições randomicas
     let posicaoXMosquito = Math.floor(Math.random() * palcoLargura) - 90;
     let posicaoYMosquito = Math.floor(Math.random() * palcoAltura) - 90;
 
     // Evita que a posição do mosquito seja menor que zero, evitando dele ficar fora do palco
-    posicaoXMosquito = (posicaoXMosquito < 0) ? 0 : posicaoXMosquito;
-    posicaoYMosquito = (posicaoYMosquito < 0) ? 0 : posicaoYMosquito;
+    posicaoXMosquito = `${(posicaoXMosquito < 0) ? 0 : posicaoXMosquito}px`;
+    posicaoYMosquito = `${(posicaoYMosquito < 0) ? 0 : posicaoYMosquito}px`;
 
-    // Cria o elemento mosquito
-    let mosquito = document.createElement('img');
-    mosquito.src = 'imagens/mosca.png';
-    mosquito.className = `${tamanhoAleatorioMosquito()} ${ladoAleatorioMosquito()}`;
-    mosquito.style.position = 'absolute';
-    mosquito.style.left = `${posicaoXMosquito}px`;
-    mosquito.style.top = `${posicaoYMosquito}px`;
-    mosquito.id = 'mosquito';
-
-    // Inclui o mosquito no palco do jogo
-    document.body.appendChild(mosquito);
+    return [posicaoXMosquito, posicaoYMosquito];
 }
 
 function tamanhoAleatorioMosquito() {
