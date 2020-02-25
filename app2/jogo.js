@@ -1,31 +1,25 @@
 let palcoAltura, palcoLargura;
 
-// Armazena de forma dinâmica as dimensões do palco do jogo de acordo com o tamanho do window
 function ajustaTamanhoPalcoJogo() {
     palcoAltura = window.innerHeight;
     palcoLargura = window.innerWidth;
 }
 
-// Gera o elemento mosquito
 function criarMosquito() {
+
     // Remove mosquito anterior, caso exista
     if (document.getElementById('mosquito') !== null) {
         document.getElementById('mosquito').remove();
     }
 
     // Variaveis usadas nas propriedades do elemento Mosquito
-    let posicoesXY, classesCSS;
-
-    // Gera posições X e Y randomicas, 
-    posicoesXY = posicaoAleatoriaMosquito();
+    let posicoesXY = posicaoAleatoriaMosquito();
 
     // Atribui a classe de estilo referente ao tamanho do Mosquito
-    classesCSS = `${tamanhoAleatorioMosquito()}`;
-
+    let classesCSS = tamanhoAleatorioMosquito(); 
+   
     // Atribui a classe de estilo referente ao lado do Mosquito
-    classesCSS += ' ' + ladoAleatorioMosquito();
-
-    console.log(classesCSS);
+    classesCSS += ' ' + ladoAleatorioMosquito();  
 
     // Cria o elemento mosquito
     let mosquito = document.createElement('img');
@@ -38,6 +32,7 @@ function criarMosquito() {
 
     // Inclui o mosquito no palco do jogo
     document.body.appendChild(mosquito);
+
 }
 
 function posicaoAleatoriaMosquito() {
@@ -65,8 +60,6 @@ function tamanhoAleatorioMosquito() {
         case 2:
             return 'mosquito3';
     }
-
-    console.log(`Gerou tamanho ${clase}`);
 }
 
 function ladoAleatorioMosquito() {
