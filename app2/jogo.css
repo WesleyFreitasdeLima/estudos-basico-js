@@ -9,6 +9,12 @@ body {
     margin-right: auto;
 }
 
+.vitoria {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .button-restart {
     width: 200px;
     height: 70px;

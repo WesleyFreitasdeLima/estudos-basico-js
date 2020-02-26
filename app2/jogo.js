@@ -17,7 +17,7 @@ const cronometro = setInterval(() => {
 
         clearInterval(jogoRodando);
 
-        alert('Você venceu!');
+        window.location.href = 'vitoria.html';
 
     }
 
@@ -34,9 +34,11 @@ function criarMosquito() {
 
     // Remove mosquito anterior, caso exista
     if (document.getElementById('mosquito') !== null) {
+
         document.getElementById('mosquito').remove();
 
         perdeVida();
+
     }
 
     // Variaveis usadas nas propriedades do elemento Mosquito
@@ -119,7 +121,7 @@ function ladoAleatorioMosquito() {
 }
 
 function perdeVida() {
-    
+
     if (vidasTotal === 0) {
         window.location.href = 'game_over.html'
 
