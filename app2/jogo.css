@@ -3,16 +3,30 @@ body {
     background-repeat: no-repeat;
 }
 
-.game-over {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.menu-jogo{
+    width: 100%; 
+    text-align: center;
 }
 
-.vitoria {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.menu-dificuldades{
+    width:  250px;
+    height: 50px;
+    border: solid 7px gray;
+    border-radius: 80px;
+    background: white;
+    font-weight: bolder;
+    font-size: 20px;
+    text-align: center;
+}
+
+.button-start {
+    width: 200px;
+    height: 70px;
+    border: solid 7px red;
+    border-radius: 80px;
+    background: white;
+    font-weight: bolder;
+    font-size: 20px;
 }
 
 .button-restart {
@@ -23,6 +37,27 @@ body {
     background: white;
     font-weight: bolder;
     font-size: 20px;
+}
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+.game-over {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+.vitoria {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
 }
 
 .mosquito1 {

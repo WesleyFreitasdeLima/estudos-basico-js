@@ -1,7 +1,7 @@
 let palcoAltura = 0;
 let palcoLargura = 0;
 let vidasTotal = 5;
-let tempo = 30;
+let tempo = 10;
 
 const cronometro = setInterval(() => {
 

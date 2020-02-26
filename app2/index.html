@@ -1,39 +1,52 @@
 <!DOCTYPE html>
-<html lang="pt=br">
+<html lang="pt-bt">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mata mosquito - Em jogo....</title>
+    <title>Mata Mosquito - Inicio</title>
 
     <link rel="stylesheet" href="jogo.css" />
-    <script src="jogo.js"></script>
 </head>
 
-<body onresize="ajustaTamanhoPalcoJogo()">
-    <div class="painel">
-        <div class="vidas">
-            <img id="vida1" src="imagens/coracao_cheio.png" />
-            <img id="vida2" src="imagens/coracao_cheio.png" />
-            <img id="vida3" src="imagens/coracao_cheio.png" />
-            <img id="vida4" src="imagens/coracao_cheio.png" />
-            <img id="vida5" src="imagens/coracao_cheio.png" />
-        </div>
+<body>
+    <table class="menu-jogo">
+        <tr>
+            <td>
+                <img class="logo" src="imagens/game.png">
+            </td>
+        </tr>
 
-        <div>
-            Tempo restante: <span id='cronometro'></span>
-        </div>
-    </div>
+        <tr>
+            <td>
+                <select class="menu-dificuldades">
+                    <option value="0" selected>
+                        SELECIONE UM NIVEL
+                    </option>
 
-    <script>
-        criarPalcoJogo();
+                    <option value="1">
+                        Fácil
+                    </option>
 
-        const jogoRodando = setInterval(() => {
+                    <option value="2">
+                        Intermediário
+                    </option>
 
-            criarMosquito();
+                    <option value="3">
+                        Dificil
+                    </option>
+                </select>
+            </td>
+        </tr>
 
-        }, 2000);
-    </script>
+        <tr>
+            <td>
+                <button type="button" class="button-start" onclick="window.location.href = 'jogo.html'">
+                    Iniciar jogo
+                </button>
+            </td>
+        </tr>
+    </table>
 </body>
 
 </html>
