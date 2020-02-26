@@ -1,7 +1,33 @@
-let palcoAltura, palcoLargura;
-function ajustaTamanhoPalcoJogo() {
-    palcoAltura = window.innerHeight;
-    palcoLargura = window.innerWidth;
+let palcoAltura = 0;
+let palcoLargura = 0;
+let vidasTotal = 5;
+let tempo = 30;
+
+const cronometro = setInterval(() => {
+
+    tempo -= 1;
+
+    if (tempo >= 0) {
+
+        document.getElementById('cronometro').innerHTML = tempo;
+
+    } else {
+
+        clearInterval(cronometro);
+
+        clearInterval(jogoRodando);
+
+        alert('Você venceu!');
+
+    }
+
+}, 1000);
+
+function criarPalcoJogo() {
+
+    ajustaTamanhoPalcoJogo();
+    document.getElementById('cronometro').innerHTML = tempo;
+
 }
 
 function criarMosquito() {
@@ -30,7 +56,7 @@ function criarMosquito() {
     mosquito.style.left = posicoesXY[0];
     mosquito.style.top = posicoesXY[1];
     mosquito.id = 'mosquito';
-    mosquito.onclick = function(){
+    mosquito.onclick = function () {
         this.remove();
     }
 
@@ -40,7 +66,15 @@ function criarMosquito() {
 
 }
 
+function ajustaTamanhoPalcoJogo() {
+
+    palcoAltura = window.innerHeight;
+    palcoLargura = window.innerWidth;
+
+}
+
 function posicaoAleatoriaMosquito() {
+
     // Gera posições randomicas
     let posicaoXMosquito = Math.floor(Math.random() * palcoLargura) - 90;
     let posicaoYMosquito = Math.floor(Math.random() * palcoAltura) - 90;
@@ -50,9 +84,11 @@ function posicaoAleatoriaMosquito() {
     posicaoYMosquito = `${(posicaoYMosquito < 0) ? 0 : posicaoYMosquito}px`;
 
     return [posicaoXMosquito, posicaoYMosquito];
+
 }
 
 function tamanhoAleatorioMosquito() {
+
     let classe = Math.floor(Math.random() * 3);
 
     switch (classe) {
@@ -65,9 +101,11 @@ function tamanhoAleatorioMosquito() {
         case 2:
             return 'mosquito3';
     }
+
 }
 
 function ladoAleatorioMosquito() {
+
     let classe = Math.floor(Math.random() * 2);
 
     switch (classe) {
@@ -77,10 +115,11 @@ function ladoAleatorioMosquito() {
         case 1:
             return 'ladoB';
     }
+
 }
 
-let vidasTotal = 5;
-function perdeVida(){
+function perdeVida() {
+    
     if (vidasTotal === 0) {
         window.location.href = 'game_over.html'
 
@@ -88,4 +127,5 @@ function perdeVida(){
         document.getElementById(`vida${vidasTotal}`).src = 'imagens/coracao_vazio.png';
         vidasTotal--;
     }
+
 }

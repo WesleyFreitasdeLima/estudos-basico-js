@@ -20,18 +20,20 @@
             <img id="vida5" src="imagens/coracao_cheio.png" />
         </div>
 
-        <div class="cronometro">
-            Tempo restante: ?
+        <div>
+            Tempo restante: <span id='cronometro'></span>
         </div>
     </div>
+
     <script>
-        ajustaTamanhoPalcoJogo();
+        criarPalcoJogo();
 
-        setInterval(()=>{
+        const jogoRodando = setInterval(() => {
+
             criarMosquito();
-        },2000);
-    </script>
 
+        }, 2000);
+    </script>
 </body>
 
 </html>
